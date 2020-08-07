@@ -8,7 +8,6 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
     theme: {
-        themeVariants: ['dark'],
         extend: {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -16,7 +15,7 @@ module.exports = {
         },
     },
     variants: {},
-    plugins: [require('@tailwindcss/ui'), require('tailwindcss-multi-theme')],
+    plugins: [require('@tailwindcss/ui'), require('tailwindcss-dark-mode')],
     purge: {
         // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
         enabled: process.env.NODE_ENV === 'production',
