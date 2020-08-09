@@ -58,6 +58,23 @@
             <BaseButton size="xl" :color="color">Button xl</BaseButton>
         </div>
         <div class="flex space-x-4 items-end">
+            <BaseButton size="xs" class="rounded-full" :color="color"
+                >Button xs</BaseButton
+            >
+            <BaseButton size="sm" class="rounded-full" :color="color"
+                >Button sm</BaseButton
+            >
+            <BaseButton size="md" class="rounded-full" :color="color"
+                >Button md</BaseButton
+            >
+            <BaseButton size="lg" class="rounded-full" :color="color"
+                >Button lg</BaseButton
+            >
+            <BaseButton size="xl" class="rounded-full" :color="color"
+                >Button xl</BaseButton
+            >
+        </div>
+        <div class="flex space-x-4 items-end">
             <BaseButton size="xs" :color="color" type="secondary"
                 >Button xs</BaseButton
             >
@@ -101,6 +118,12 @@
         <div class="flex space-x-4 items-end">
             <BaseSelect :color="color" class="w-64" />
         </div>
+        <div
+            class="h-64 w-full"
+            :class="`bg-${color}-200`"
+            @click="displayOverlay"
+            data-cursor-hover
+        ></div>
     </div>
 </template>
 
@@ -125,6 +148,9 @@ export default {
     methods: {
         changeColor(value) {
             this.color = value
+        },
+        displayOverlay(event) {
+            console.log(event)
         },
     },
 }
