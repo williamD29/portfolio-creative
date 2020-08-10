@@ -1,20 +1,6 @@
 <template>
     <div class="m-16 space-y-8">
-        <div class="flex flex-col">
-            <label class="block text-sm font-medium leading-5 text-gray-700"
-                >Change color</label
-            >
-            <div class="flex space-x-4 mt-1">
-                <BaseButton
-                    v-for="(value, index) in colors"
-                    :key="`color-${index}`"
-                    size="custom"
-                    class-names="h-5 w-5 rounded"
-                    :color="value"
-                    @base-button-clicked="changeColor(value)"
-                />
-            </div>
-        </div>
+        <Home />
         <div class="flex space-x-4 items-end">
             <BaseToggle :color="color">
                 <template #default>
@@ -50,108 +36,135 @@
             >
             <BaseLink :color="color" url="#" type="nuxt-link">Link 2</BaseLink>
         </div>
-        <div class="flex space-x-4 items-end">
-            <BaseButton size="xs" :color="color">Button xs</BaseButton>
-            <BaseButton size="sm" :color="color">Button sm</BaseButton>
-            <BaseButton size="md" :color="color">Button md</BaseButton>
-            <BaseButton size="lg" :color="color">Button lg</BaseButton>
-            <BaseButton size="xl" :color="color">Button xl</BaseButton>
-        </div>
-        <div class="flex space-x-4 items-end">
-            <BaseButton size="xs" class="rounded-full" :color="color"
-                >Button xs</BaseButton
-            >
-            <BaseButton size="sm" class="rounded-full" :color="color"
-                >Button sm</BaseButton
-            >
-            <BaseButton size="md" class="rounded-full" :color="color"
-                >Button md</BaseButton
-            >
-            <BaseButton size="lg" class="rounded-full" :color="color"
-                >Button lg</BaseButton
-            >
-            <BaseButton size="xl" class="rounded-full" :color="color"
-                >Button xl</BaseButton
+        <div class="flex flex-wrap space-x-4 items-end">
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                :color="color"
+                >Button {{ item }}</BaseButton
             >
         </div>
-        <div class="flex space-x-4 items-end">
-            <BaseButton size="xs" :color="color" type="secondary"
-                >Button xs</BaseButton
-            >
-            <BaseButton size="sm" :color="color" type="secondary"
-                >Button sm</BaseButton
-            >
-            <BaseButton size="md" :color="color" type="secondary"
-                >Button md</BaseButton
-            >
-            <BaseButton size="lg" :color="color" type="secondary"
-                >Button lg</BaseButton
-            >
-            <BaseButton size="xl" :color="color" type="secondary"
-                >Button xl</BaseButton
+        <div class="flex flex-wrap space-x-4 items-end">
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                class="rounded-full"
+                :color="color"
+                >Button {{ item }}</BaseButton
             >
         </div>
-        <div class="flex space-x-4 items-end">
-            <BaseButton size="xs" :color="color" type="tertiary"
-                >Button xs</BaseButton
-            >
-            <BaseButton size="sm" :color="color" type="tertiary"
-                >Button sm</BaseButton
-            >
-            <BaseButton size="md" :color="color" type="tertiary"
-                >Button md</BaseButton
-            >
-            <BaseButton size="lg" :color="color" type="tertiary"
-                >Button lg</BaseButton
-            >
-            <BaseButton size="xl" :color="color" type="tertiary"
-                >Button xl</BaseButton
+        <div
+            class="flex flex-wrap space-x-4 items-end p-8 my-4 rounded-lg"
+            :class="`bg-${color}-200`"
+        >
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                appearance="dark"
+                class="rounded-full"
+                :color="color"
+                >Button {{ item }}</BaseButton
             >
         </div>
-        <div class="flex space-x-4 items-end">
-            <BaseInput size="xs" :color="color" placeholder="Input xs" />
-            <BaseInput size="sm" :color="color" placeholder="Input sm" />
-            <BaseInput size="md" :color="color" placeholder="Input md" />
-            <BaseInput size="lg" :color="color" placeholder="Input lg" />
-            <BaseInput size="xl" :color="color" placeholder="Input xl" />
+        <div
+            class="flex flex-wrap space-x-4 items-end p-8 my-4 rounded-lg bg-gray-800"
+        >
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                appearance="light"
+                class="rounded-full"
+                :color="color"
+                >Button {{ item }}</BaseButton
+            >
+        </div>
+        <div class="flex flex-wrap space-x-4 items-end">
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                :color="color"
+                type="secondary"
+                >Button {{ item }}</BaseButton
+            >
+        </div>
+        <div class="flex flex-wrap space-x-4 items-end">
+            <BaseButton
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                :color="color"
+                type="tertiary"
+                >Button {{ item }}</BaseButton
+            >
+        </div>
+        <div class="flex flex-wrap space-x-4 items-end">
+            <BaseInput
+                v-for="(item, index) in sizes"
+                :key="`input-${index}`"
+                :size="item"
+                :color="color"
+                :placeholder="`Input ${item}`"
+            />
         </div>
         <div class="flex space-x-4 items-end">
             <BaseSelect :color="color" class="w-64" />
         </div>
         <div
+            data-cursor-hover
             class="h-64 w-full"
             :class="`bg-${color}-200`"
-            @click="displayOverlay"
-            data-cursor-hover
         ></div>
+        <div class="flex flex-col space-y-4">
+            <p
+                v-for="(item, index) in sizes"
+                :key="`p-${index}`"
+                :class="`text-${item}`"
+                class="text-gray-800"
+            >
+                The five boxing wizards jump quickly
+            </p>
+            <p
+                v-for="(item, index) in plusSizes"
+                :key="`p+-${index}`"
+                :class="`text-${item}`"
+                class="text-gray-800"
+            >
+                The five boxing wizards jump quickly
+            </p>
+            <p class="text-width text-gray-800">
+                The five boxing wizards jump quickly
+            </p>
+        </div>
     </div>
 </template>
 
 <script>
+import Home from '@/components/sections/Home.vue'
 export default {
+    components: {
+        Home,
+    },
     data() {
         return {
-            color: 'pink',
-            colors: [
-                'pink',
-                'red',
-                'orange',
-                'yellow',
-                'green',
-                'teal',
-                'blue',
-                'indigo',
-                'purple',
-            ],
+            sizes: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
+            plusSizes: ['4xl', '5xl', '6xl'],
         }
     },
-    methods: {
-        changeColor(value) {
-            this.color = value
-        },
-        displayOverlay(event) {
-            console.log(event)
+    computed: {
+        color() {
+            return this.$store.state.color.color
         },
     },
 }
 </script>
+
+<style>
+.text-width {
+    font-size: calc((75vw - 4.5rem) / 7);
+}
+</style>

@@ -29,6 +29,12 @@
                     size === 'xl'
                         ? 'py-3 px-4 rounded-md text-base leading-6'
                         : '',
+                    size === '2xl'
+                        ? 'py-4 px-5 rounded-md text-base leading-6'
+                        : '',
+                    size === '3xl'
+                        ? 'py-5 px-6 rounded-md text-base leading-6'
+                        : '',
                     `focus:border-${color}-300 focus:shadow-outline-${color}`,
                 ]"
             />
@@ -50,7 +56,9 @@ export default {
         },
         size: {
             validator(value) {
-                return ['xs', 'sm', 'md', 'lg', 'xl'].includes(value)
+                return ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].includes(
+                    value
+                )
             },
             default: 'md',
         },

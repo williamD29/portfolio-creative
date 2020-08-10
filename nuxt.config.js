@@ -1,4 +1,8 @@
 export default {
+    loading: {
+        color: 'red',
+        height: '5px',
+    },
     /*
      ** Nuxt rendering mode
      ** See https://nuxtjs.org/api/configuration-mode

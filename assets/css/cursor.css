@@ -28,9 +28,6 @@
     pointer-events: none;
     will-change: auto;
 }
-.cursor-fx__inner__outside[data-v-2f69e36a] {
-    background-color: var(--color, #333);
-}
 .cursor-fx__inner__custom {
     display: flex;
     justify-content: center;
@@ -43,6 +40,7 @@
 .cursor-fx__inner__outside[data-v-2f69e36a] {
     position: absolute;
     z-index: 9999;
+    background-color: var(--color, #333);
 }
 .cursor-fx__inner__outside[data-v-2f69e36a]::after {
     content: '';

@@ -1,11 +1,6 @@
 <template>
     <client-only>
-        <cursor-fx
-            id="cursor"
-            color="#7E3AF2"
-            class="text-white"
-            :config="customConfig"
-        >
+        <cursor-fx id="cursor" :color="color" delay="0" :config="customConfig">
             <svg
                 viewBox="0 0 20 20"
                 fill="white"
@@ -15,13 +10,15 @@
                     fill-rule="evenodd"
                     d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                     clip-rule="evenodd"
-                ></path>
+                />
             </svg>
         </cursor-fx>
     </client-only>
 </template>
 
 <script>
+import colors from '@/utils/colors.js'
+
 export default {
     data() {
         return {
@@ -29,7 +26,7 @@ export default {
                 lerps: {
                     dot: 1,
                     circle: 0.18,
-                    custom: 0.15,
+                    custom: 0.165,
                 },
                 scale: {
                     ratio: 0.18,
@@ -39,6 +36,11 @@ export default {
                 opacity: 1,
             },
         }
+    },
+    computed: {
+        color() {
+            return colors[this.$store.state.color.color]['600']
+        },
     },
 }
 </script>
