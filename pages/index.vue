@@ -1,9 +1,17 @@
 <template>
-    <div></div>
+    <div>
+        <Home />
+    </div>
 </template>
 
 <script>
-export default {}
+import Home from '@/components/sections/Home.vue'
+
+export default {
+    components: {
+        Home,
+    },
+}
 </script>
 
 <style></style>

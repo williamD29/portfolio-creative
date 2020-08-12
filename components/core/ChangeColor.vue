@@ -1,9 +1,6 @@
 <template>
     <div>
-        <label class="block text-sm font-medium leading-5 text-gray-700"
-            >Change color</label
-        >
-        <div class="flex flex-wrap space-x-4 mt-1">
+        <div class="flex flex-col space-y-2">
             <BaseButton
                 v-for="(value, index) in colors"
                 :key="`color-${index}`"
@@ -42,7 +39,11 @@ export default {
                 const root = document.documentElement
                 root.style.setProperty(
                     '--highlight-color',
-                    colors[this.$store.state.color.color]['600']
+                    colors[this.$store.state.color.color]['200']
+                )
+                root.style.setProperty(
+                    '--text-color',
+                    colors[this.$store.state.color.color]['800']
                 )
             }
         },
@@ -50,4 +51,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.grid {
+    grid-auto-columns: min-content;
+}
+</style>

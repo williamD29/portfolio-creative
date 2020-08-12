@@ -21,7 +21,10 @@
     "sass-loader": "^9.0.3",
     "simplex-noise": "^2.4.0",
     "tailwindcss-multi-theme": "^1.0.3",
-    "vue-click-outside": "^1.1.0"
+    "three": "^0.119.1",
+    "vue-click-outside": "^1.1.0",
+    "vue-kinesis": "^1.1.5",
+    "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.0.3",

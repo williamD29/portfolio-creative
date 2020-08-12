@@ -1,6 +1,5 @@
 <template>
     <div class="m-16 space-y-8">
-        <Home />
         <div class="flex space-x-4 items-end">
             <BaseToggle :color="color">
                 <template #default>
@@ -50,7 +49,7 @@
                 v-for="(item, index) in sizes"
                 :key="`input-${index}`"
                 :size="item"
-                class="rounded-full"
+                class-names="rounded-full"
                 :color="color"
                 >Button {{ item }}</BaseButton
             >
@@ -64,7 +63,7 @@
                 :key="`input-${index}`"
                 :size="item"
                 appearance="dark"
-                class="rounded-full"
+                class-names="rounded-full"
                 :color="color"
                 >Button {{ item }}</BaseButton
             >
@@ -77,7 +76,7 @@
                 :key="`input-${index}`"
                 :size="item"
                 appearance="light"
-                class="rounded-full"
+                class-names="rounded-full"
                 :color="color"
                 >Button {{ item }}</BaseButton
             >
@@ -136,19 +135,15 @@
             >
                 The five boxing wizards jump quickly
             </p>
-            <p class="text-width text-gray-800">
-                The five boxing wizards jump quickly
+            <p class="text-width text-gray-800 font-black">
+                Projets —
             </p>
         </div>
     </div>
 </template>
 
 <script>
-import Home from '@/components/sections/Home.vue'
 export default {
-    components: {
-        Home,
-    },
     data() {
         return {
             sizes: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],

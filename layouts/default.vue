@@ -1,23 +1,32 @@
 <template>
     <div>
-        <Nuxt />
-        <CursorEffect />
+        <Sidebar />
+        <div class="ml-24">
+            <Nuxt />
+            <CursorEffect />
+        </div>
     </div>
 </template>
 
 <script>
+import Sidebar from '@/components/core/Sidebar.vue'
 import CursorEffect from '@/components/core/CursorEffect.vue'
 import colors from '@/utils/colors.js'
 
 export default {
     components: {
+        Sidebar,
         CursorEffect,
     },
     mounted() {
         const root = document.documentElement
         root.style.setProperty(
             '--highlight-color',
-            colors[this.$store.state.color.color]['600']
+            colors[this.$store.state.color.color]['200']
+        )
+        root.style.setProperty(
+            '--text-color',
+            colors[this.$store.state.color.color]['800']
         )
     },
 }
@@ -26,13 +35,14 @@ export default {
 <style>
 :root {
     --highlight-color: theme('colors.purple.600');
+    --text-color: theme('colors.gray.800');
 }
 ::selection {
     background-color: var(--highlight-color);
-    color: white;
+    color: var(--text-color);
 }
 ::-moz-selection {
     background-color: var(--highlight-color);
-    color: white;
+    color: var(--text-color);
 }
 </style>
