@@ -5,3 +5,7 @@
 body {
     color: theme('colors.gray.800');
 }
+
+.dark-mode body {
+    color: theme('colors.gray.100');
+}

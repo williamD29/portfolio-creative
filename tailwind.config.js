@@ -8,14 +8,34 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
     theme: {
+        darkSelector: '.dark-mode',
         extend: {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
         },
     },
-    variants: {},
-    plugins: [require('@tailwindcss/ui'), require('tailwindcss-dark-mode')],
+    variants: {
+        backgroundColor: [
+            'responsive',
+            'hover',
+            'focus',
+            'active',
+            'dark',
+            'dark-hover',
+            'dark-group-hover',
+            'dark-even',
+            'dark-odd',
+        ],
+        borderColor: [
+            'dark',
+            'dark-disabled',
+            'dark-focus',
+            'dark-focus-within',
+        ],
+        textColor: ['dark', 'dark-hover', 'dark-active', 'dark-placeholder'],
+    },
+    plugins: [require('@tailwindcss/ui'), require('tailwindcss-dark-mode')()],
     purge: {
         // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
         enabled: process.env.NODE_ENV === 'production',

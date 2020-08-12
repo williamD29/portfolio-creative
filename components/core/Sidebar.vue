@@ -1,8 +1,12 @@
 <template>
     <div
-        class="w-24 h-screen fixed border-r border-gray-200 flex flex-col space-y-8 justify-center items-center bg-transparent"
+        class="w-24 h-screen fixed border-r border-gray-200 flex flex-col space-y-8 justify-center items-center bg-transparent dark:bg-gray-900 dark:border-gray-700"
     >
-        <BaseToggle :color="color">
+        <BaseToggle
+            ref="themeToggle"
+            :color="color"
+            @base-toggle-clicked="setCookie"
+        >
             <template #default>
                 <svg
                     class="h-3 w-3 text-gray-400"
@@ -43,6 +47,36 @@ export default {
     computed: {
         color() {
             return this.$store.state.color.color
+        },
+    },
+    mounted() {
+        if (document.cookie) {
+            if (this.getCookie('theme-toggle-active')) {
+                this.$refs.themeToggle._data.active =
+                    this.getCookie('theme-toggle-active') !== 'false'
+                this.setTheme(this.getCookie('theme-toggle-active') !== 'false')
+            }
+        }
+    },
+    methods: {
+        getCookie(name) {
+            return document.cookie
+                .split(';')
+                .find((row) => row.includes(name))
+                .split('=')[1]
+        },
+        setCookie(value) {
+            if (process.client) {
+                document.cookie = `theme-toggle-active=${value}`
+                this.setTheme(value)
+            }
+        },
+        setTheme(value) {
+            if (value) {
+                this.$colorMode.preference = 'dark'
+            } else {
+                this.$colorMode.preference = 'light'
+            }
         },
     },
 }

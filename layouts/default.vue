@@ -1,7 +1,7 @@
 <template>
     <div>
         <Sidebar />
-        <div class="ml-24">
+        <div class="ml-24 bg-white dark:bg-gray-900">
             <Nuxt />
             <CursorEffect />
         </div>
