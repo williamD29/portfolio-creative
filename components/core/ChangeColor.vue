@@ -4,6 +4,7 @@
             <BaseButton
                 v-for="(value, index) in colors"
                 :key="`color-${index}`"
+                :aria-label="`change color ${value}`"
                 size="custom"
                 class-names="h-5 w-5 rounded"
                 :color="value"
@@ -39,11 +40,11 @@ export default {
                 const root = document.documentElement
                 root.style.setProperty(
                     '--highlight-color',
-                    colors[this.$store.state.color.color]['200']
+                    colors[this.$store.state.color.color]['600']
                 )
                 root.style.setProperty(
-                    '--text-color',
-                    colors[this.$store.state.color.color]['800']
+                    '--link-decoration',
+                    colors[this.$store.state.color.color]['500']
                 )
             }
         },

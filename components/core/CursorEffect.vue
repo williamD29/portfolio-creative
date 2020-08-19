@@ -1,6 +1,12 @@
 <template>
     <client-only>
-        <cursor-fx id="cursor" :color="color" delay="0" :config="customConfig">
+        <cursor-fx
+            id="cursor"
+            class="transition-colors ease-in-out duration-300"
+            :color="color"
+            delay="0"
+            :config="customConfig"
+        >
             <svg
                 viewBox="0 0 20 20"
                 fill="white"

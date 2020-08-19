@@ -151,7 +151,7 @@ export default {
         },
         className: {
             type: String,
-            default: '',
+            default: null,
         },
         title: {
             type: String,
@@ -163,7 +163,7 @@ export default {
         },
         preselected: {
             type: [String, Object],
-            default: '',
+            default: null,
         },
         color: {
             validator(value) {

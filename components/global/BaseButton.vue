@@ -3,26 +3,26 @@
         v-if="type === 'primary'"
         type="button"
         :class="[
-            size === 'custom' ? '' : '',
-            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : '',
-            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : '',
-            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : '',
-            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : '',
-            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : '',
-            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : '',
-            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : '',
+            size === 'custom' ? null : null,
+            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : null,
+            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : null,
+            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : null,
+            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : null,
+            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : null,
+            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : null,
+            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : null,
             appearance === 'light'
                 ? `text-gray-800 bg-white hover:bg-${color}-600 hover:text-white active:text-white active:bg-${color}-700 focus:border-transparent focus:shadow-outline-${color}`
-                : ``,
+                : null,
             appearance === 'dark'
                 ? `text-white bg-gray-800 hover:bg-${color}-600 active:bg-${color}-700 focus:border-transparent focus:shadow-outline-${color}`
-                : ``,
+                : null,
             appearance === 'default'
                 ? `text-white bg-${color}-600 hover:bg-${color}-500 active:bg-${color}-700 focus:border-${color}-700 focus:shadow-outline-${color}`
-                : ``,
+                : null,
             classNames,
         ]"
-        class="inline-flex items-center border border-transparent font-medium text-white focus:outline-none transition ease-in-out duration-150"
+        class="inline-flex items-center border border-transparent font-medium text-white focus:outline-none transition ease-in-out duration-300"
         @click.prevent="$emit('base-button-clicked', $event)"
     >
         <slot></slot>
@@ -31,18 +31,18 @@
         v-else-if="type === 'secondary'"
         type="button"
         :class="[
-            size === 'custom' ? '' : '',
-            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : '',
-            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : '',
-            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : '',
-            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : '',
-            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : '',
-            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : '',
-            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : '',
+            size === 'custom' ? null : null,
+            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : null,
+            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : null,
+            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : null,
+            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : null,
+            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : null,
+            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : null,
+            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : null,
             `text-${color}-700 bg-${color}-100 hover:bg-${color}-50 focus:border-${color}-300 focus:shadow-outline-${color} active:bg-${color}-200`,
             classNames,
         ]"
-        class="inline-flex items-center border border-transparent font-medium focus:outline-none transition ease-in-out duration-150"
+        class="inline-flex items-center border border-transparent font-medium focus:outline-none transition ease-in-out duration-300"
         @click.prevent="$emit('base-button-clicked', $event)"
     >
         <slot></slot>
@@ -51,18 +51,18 @@
         v-else
         type="button"
         :class="[
-            size === 'custom' ? '' : '',
-            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : '',
-            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : '',
-            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : '',
-            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : '',
-            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : '',
-            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : '',
-            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : '',
+            size === 'custom' ? null : null,
+            size === 'xs' ? 'px-2.5 py-1.5 rounded text-xs leading-4' : null,
+            size === 'sm' ? 'px-3 py-2 rounded-md text-sm leading-4' : null,
+            size === 'md' ? 'px-4 py-2 rounded-md text-sm leading-5' : null,
+            size === 'lg' ? 'px-4 py-2 rounded-md text-base leading-6' : null,
+            size === 'xl' ? 'px-6 py-3 rounded-md text-base leading-6' : null,
+            size === '2xl' ? 'px-8 py-4 rounded-md text-base leading-6' : null,
+            size === '3xl' ? 'px-12 py-5 rounded-md text-base leading-6' : null,
             `focus:border-${color}-300 focus:shadow-outline-${color}`,
             classNames,
         ]"
-        class="inline-flex items-center border border-gray-300 font-medium text-gray-700 bg-white hover:text-gray-500 focus:outline-none active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
+        class="inline-flex items-center border border-gray-300 font-medium text-gray-700 bg-white hover:text-gray-500 focus:outline-none active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-300"
         @click.prevent="$emit('base-button-clicked', $event)"
     >
         <slot></slot>

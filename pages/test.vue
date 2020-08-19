@@ -158,8 +158,4 @@ export default {
 }
 </script>
 
-<style>
-.text-width {
-    font-size: calc((75vw - 4.5rem) / 7);
-}
-</style>
+<style></style>

@@ -16,25 +16,25 @@
                 :class="[
                     size === 'xs'
                         ? 'px-2 py-1.5 rounded text-xs leading-4'
-                        : '',
+                        : null,
                     size === 'sm'
                         ? 'px-2 py-2 rounded-md text-sm leading-4'
-                        : '',
+                        : null,
                     size === 'md'
                         ? 'px-3 py-2 rounded-md text-sm leading-5'
-                        : '',
+                        : null,
                     size === 'lg'
                         ? 'py-2 px-3 rounded-md text-base leading-6'
-                        : '',
+                        : null,
                     size === 'xl'
                         ? 'py-3 px-4 rounded-md text-base leading-6'
-                        : '',
+                        : null,
                     size === '2xl'
                         ? 'py-4 px-5 rounded-md text-base leading-6'
-                        : '',
+                        : null,
                     size === '3xl'
                         ? 'py-5 px-6 rounded-md text-base leading-6'
-                        : '',
+                        : null,
                     `focus:border-${color}-300 focus:shadow-outline-${color}`,
                 ]"
             />

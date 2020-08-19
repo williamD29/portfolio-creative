@@ -1,11 +1,11 @@
 <template>
     <div
-        class="w-24 h-screen fixed border-r border-gray-200 flex flex-col space-y-8 justify-center items-center bg-transparent dark:bg-gray-900 dark:border-gray-700"
+        class="w-24 h-screen fixed border-r border-gray-200 flex flex-col space-y-8 justify-center items-center bg-transparent dark:bg-gray-900 dark:border-gray-700 transition-colors duration-150"
     >
         <BaseToggle
             ref="themeToggle"
             :color="color"
-            @base-toggle-clicked="setCookie"
+            @base-toggle-clicked="setLocalStorage"
         >
             <template #default>
                 <svg
@@ -50,26 +50,19 @@ export default {
         },
     },
     mounted() {
-        if (document.cookie) {
-            if (this.getCookie('theme-toggle-active')) {
-                this.$refs.themeToggle._data.active =
-                    this.getCookie('theme-toggle-active') !== 'false'
-                this.setTheme(this.getCookie('theme-toggle-active') !== 'false')
-            }
-        }
+        this.$refs.themeToggle._data.active =
+            this.getLocalStorage('theme-toggle-active') !== 'false'
     },
     methods: {
-        getCookie(name) {
-            return document.cookie
-                .split(';')
-                .find((row) => row.includes(name))
-                .split('=')[1]
-        },
-        setCookie(value) {
-            if (process.client) {
-                document.cookie = `theme-toggle-active=${value}`
-                this.setTheme(value)
+        getLocalStorage(name) {
+            if (localStorage.getItem(name)) {
+                return localStorage.getItem(name)
             }
+            return false
+        },
+        setLocalStorage(value) {
+            localStorage.setItem('theme-toggle-active', value)
+            this.setTheme(value)
         },
         setTheme(value) {
             if (value) {
