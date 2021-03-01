@@ -24,7 +24,7 @@
         "simplex-noise": "^2.4.0",
         "tailwindcss": "^1.7.2",
         "tailwindcss-multi-theme": "^1.0.3",
-        "three": "^0.119.1",
+        "three": "^0.125.0",
         "vue-click-outside": "^1.1.0",
         "vue-kinesis": "^1.1.5",
         "vue-ripple-directive": "^2.0.1"
